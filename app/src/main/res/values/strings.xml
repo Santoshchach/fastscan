@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">FastScan</string>
+    <string name="title_gallery">Scanned Documents</string>
+    <string name="no_docs">No documents found</string>
+    <string name="btn_crop">Crop/Rotate</string>
+    <string name="btn_filters">Filters</string>
+    <string name="btn_next">Next</string>
+    <string name="btn_save">Save Document</string>
+    <string name="save_doc_title">Save Document</string>
+    <string name="enter_file_name">Enter file name</string>
+</resources>

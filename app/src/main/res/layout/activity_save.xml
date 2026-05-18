@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/charcoal"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/imgPreview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/layoutFilters"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/layoutFilters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/layoutCompression">
+
+        <Button
+            android:id="@+id/btnFilterNone"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Original"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btnFilterGray"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Grayscale"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btnFilterBW"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="B&amp;W"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilFileName"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:hint="File Name"
+        android:textColorHint="@color/white"
+        app:boxStrokeColor="@color/blue_accent"
+        app:hintTextColor="@color/blue_accent"
+        app:layout_constraintBottom_toTopOf="@+id/layoutCompression">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etFileName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutCompression"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvSizeInfo">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Smart Export Modes:"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <RadioGroup
+            android:id="@+id/rgCompression"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/rbPassport"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Passport Photo (144x164, &lt; 20KB)"
+                android:textColor="@color/white"
+                android:buttonTint="@color/blue_accent"
+                android:checked="true" />
+
+            <RadioButton
+                android:id="@+id/rbAadhaar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Aadhaar / Document (450x1000, &lt; 100KB)"
+                android:textColor="@color/white"
+                android:buttonTint="@color/blue_accent" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvSizeInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Estimated Final Size: -- KB"
+        android:textColor="@color/blue_accent"
+        android:textSize="14sp"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/btnSave" />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Save Document"
+        android:backgroundTint="@color/blue_accent"
+        app:cornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
