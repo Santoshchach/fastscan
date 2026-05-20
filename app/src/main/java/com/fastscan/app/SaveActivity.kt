@@ -8,9 +8,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
-import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.fastscan.app.databinding.ActivitySaveBinding
@@ -39,6 +37,16 @@ class SaveActivity : AppCompatActivity() {
 
         val defaultName = "BankScan_" + SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
         binding.etFileName.setText(defaultName)
+
+        // Auto-select text on focus
+        binding.etFileName.setSelectAllOnFocus(true)
+        binding.etFileName.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                binding.etFileName.post {
+                    binding.etFileName.selectAll()
+                }
+            }
+        }
 
         val uriString = intent.getStringExtra("IMAGE_URI")
         if (uriString != null) {

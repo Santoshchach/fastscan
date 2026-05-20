@@ -6,6 +6,7 @@ plugins {
 android {
     namespace = "com.fastscan.app"
     compileSdk = 34
+    ndkVersion = "27.0.12077973"
 
     defaultConfig {
         applicationId = "com.fastscan.app"
@@ -33,8 +34,15 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+
     buildFeatures {
         viewBinding = true
+    }
+
+    packaging {
+        jniLibs {
+            useLegacyPackaging = false
+        }
     }
 }
 
